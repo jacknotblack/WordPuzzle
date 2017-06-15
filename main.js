@@ -1,6 +1,12 @@
 $(document).ready(function () {
     const size = 20;
-    charArray = generateRandomCharArray(size);
+    // charArray = generateRandomCharArray(size);
+    charArray = [
+        ["ABCE"],
+        ["SFCS"],
+        ["ADEE"]
+    ];
+    populatePuzzle(charArray);
     //get the result array of words search
     var runSearch = function (words) {
         return function () {

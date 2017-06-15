@@ -14,6 +14,7 @@ var generateRandomCharArray = function(size){
         }
         array.push([chars]);
     }
+    populatePuzzle(array);
     return array;
 }
 

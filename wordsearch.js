@@ -1,4 +1,5 @@
-var wordSearch = function (puzzle, word) {
+var wordSearch = function (puzzle, words) {
+    var results = [];
     var traverse = function (puzzle, word, y, x, i, visited) {
         const outofBound = y < 0 || x < 0 || y === puzzle.length || x === puzzle[y][0].length;
         if (outofBound) {
@@ -35,12 +36,17 @@ var wordSearch = function (puzzle, word) {
         }
         return subPath;
     }
-    for (let y = 0; y < puzzle.length; y++) {
-        for (let x = 0; x < puzzle[y][0].length; x++) {
-            if (traverse(puzzle, word, y, x, 0, [])) {
-                return true;
+    words.forEach(function (word) {
+        for (let y = 0; y < puzzle.length; y++) {
+            for (let x = 0; x < puzzle[y][0].length; x++) {
+                if (traverse(puzzle, word, y, x, 0, [])) {
+                    results.push("True");
+                    return;
+                }
             }
         }
-    }
-    return false;
+        results.push("False");
+        return;
+    }, this);
+    return results;
 }
